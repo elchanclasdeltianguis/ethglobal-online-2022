@@ -4,7 +4,7 @@ function Header() {
   return (
     <>
       <Head>
-        <title>Y (e) A R N dApp</title>
+        <title>Y (e) A R N - patreon and crowdfunding web3 using year yield</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="crossOrigin" />
