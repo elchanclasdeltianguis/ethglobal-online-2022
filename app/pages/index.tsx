@@ -27,12 +27,12 @@ const Home: NextPage = () => {
     },
     {
       title: "Learn",
-      text: "Learn about Next.js in an interactive course with quizzes!",
+      text: "Learn about Y(e)ARN!",
       href: "",
     },
     {
       title: "Documentation",
-      text: "Find in-depth information about Next.js features and its API.",
+      text: "Find in-depth information about Y(e)ARN features.",
       href: "",
     },
   ];
