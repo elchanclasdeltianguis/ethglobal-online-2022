@@ -36,8 +36,7 @@ const Home: NextPage = () => {
       href: "",
     },
   ];
-  
-  // check
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Header />
@@ -48,9 +47,7 @@ const Home: NextPage = () => {
             Y<span className="text-sm">(e)</span>ARN
           </a>
         </h1>
-        <div className="text-2xl mt-2 font-title">
-          knit someone a sweater... or some socks!
-        </div>
+        <div className="text-2xl mt-2 font-title">knit someone a sweater... or some socks!</div>
 
         {/* CARDS */}
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
