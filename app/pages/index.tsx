@@ -6,12 +6,22 @@ import Footer from "../components/Footer";
 const Home: NextPage = () => {
   const cardsContent = [
     {
+      title: "News",
+      text: "news overview",
+      href: "",
+    },
+    {
+      title: "Shop",
+      text: "Buy knits",
+      href: "",
+    },
+    {
       title: "Artists",
       text: "View artist profiles",
       href: "",
     },
     {
-      title: "Profile",
+      title: "Dashboard",
       text: "view your profile",
       href: "",
     },
@@ -31,13 +41,13 @@ const Home: NextPage = () => {
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Header />
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center bg-slate-300">
+      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center bg-sky-100">
         <h1 className="text-6xl font-bold">
-          <a className="text-blue-600" href="https://nextjs.org">
+          <a className="text-sky-600" href="https://yearn.finance">
             Y<span className="text-sm">(e)</span>ARN
           </a>
         </h1>
-        <div className="text-xl mt-2 font-title">knit someone a sweater.. or some socks!</div>
+        <div className="text-2xl mt-2 font-title">knit someone a sweater... or some socks!</div>
 
         {/* CARDS */}
         <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
