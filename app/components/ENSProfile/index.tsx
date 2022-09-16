@@ -10,7 +10,7 @@ function ENSProfile({ profile }: Props) {
   if (profile)
     return (
       <>
-        <div className="flex gap-4 flex-col">
+        <div className="flex gap-4 flex-col border-2 border-black rounded-xl">
           <div className="text-6xl underline">{profile.name}</div>
           <div className="">
             <h1>coins</h1>
