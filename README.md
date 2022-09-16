@@ -1,4 +1,4 @@
 # eth-global-online-2022
 
-## y(e)arn
+## reusable typescript react web3 components using tailwind css
 url: https://ethglobal-online-2022.vercel.app/

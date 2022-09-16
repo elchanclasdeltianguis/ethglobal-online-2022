@@ -1,0 +1,48 @@
+{
+  "name": "@el-chanclas-del-tianguis/web3-react-components",
+  "version": "0.0.4",
+  "description": "A library of reusable web3 typescript react components with tailwindcss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc && cp package.json README.md ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elchanclasdeltianguis/ethglobal-online-2022.git"
+  },
+  "keywords": [
+    "react",
+    "web3",
+    "ethers",
+    "ens",
+    "tokens",
+    "quicknode"
+  ],
+  "author": "chanclas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elchanclasdeltianguis/ethglobal-online-2022/issues"
+  },
+  "homepage": "https://github.com/elchanclasdeltianguis/ethglobal-online-2022#readme",
+  "dependencies": {
+    "@ensdomains/ensjs": "^3.0.0-alpha.20",
+    "ethers": "^5.7.1",
+    "path": "^0.12.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@mdx-js/react": "^2.1.3",
+    "autoprefixer": "^10.4.11",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "postcss": "^8.4.16",
+    "postcss-loader": "^7.0.1",
+    "postcss-preset-env": "^7.8.2",
+    "style-loader": "^3.3.1",
+    "tailwindcss": "^3.1.8"
+  }
+}
