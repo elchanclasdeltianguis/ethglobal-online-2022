@@ -26,7 +26,7 @@ interface Props {
 
 export default function QuicknodeTokens({ balances }: Props) {
   return (
-    <div>
+    <div className="border-2 border-black p-4 rounded-xl">
       QuicknodeTokens
       <div className="space-y-4">
         {balances?.assets.map((asset: IAsset) => (
