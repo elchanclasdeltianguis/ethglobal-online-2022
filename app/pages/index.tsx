@@ -36,7 +36,8 @@ const Home: NextPage = () => {
       <div className="h-24 text-6xl flex justify-center items-center">
         <h1> react tailwind web3 ui kit</h1>
       </div>
-      <main className="pt-8 flex w-full flex-1 flex-col items-center justify-center px-20 text-center bg-sky-100 space-y-8">
+      <main className="pt-8 flex w-full flex-cols items-center gap-8
+                      justify-center  text-center bg-sky-100 space-y-8">
         <ENSProfile profile={profile} />
         {loading && <div>Loaading...</div>}
         {!loading && <QuicknodeTokens balances={tokenBalances} />}
