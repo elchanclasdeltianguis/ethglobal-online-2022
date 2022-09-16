@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
+import { useEffect } from "react";
 import useENSProfile from "../hooks/useENS";
-import useQuicknodeTokensApi from "../hooks/useQuicknodeTokensApi";
+import useQuicknodeTokensApi from "../hooks/useQuicknodeAPITokens";
+import useQuicknodeAPINfts from "../hooks/useQuicknodeAPINfts";
 
 import { ENSProfile } from "../components/ENSProfile";
 import QuicknodeTokens from "../components/QuicknodeTokens/QuicknodeTokens";
-import { useEffect } from "react";
+import QuicknodeNfts from '../components/QuicknodeNfts/QuicknodeNfts'
 
 const Home: NextPage = () => {
   const profile = useENSProfile(
@@ -16,8 +18,16 @@ const Home: NextPage = () => {
 
   const { tokenBalances, loading, setAddress } =
     useQuicknodeTokensApi(quickNodeRpc);
+
+  const {
+    nfts,
+    loading: loadingnfts,
+    setAddress: setAddressnfts,
+  } = useQuicknodeAPINfts(quickNodeRpc);
+
   useEffect(() => {
     setAddress("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
+    setAddressnfts("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
   }, []);
 
   return (
@@ -30,6 +40,9 @@ const Home: NextPage = () => {
         <ENSProfile profile={profile} />
         {loading && <div>Loaading...</div>}
         {!loading && <QuicknodeTokens balances={tokenBalances} />}
+
+        {loadingnfts && <div>Loading NFTS</div>}
+        {!loadingnfts && <QuicknodeNfts nfts={nfts} />}
       </main>
     </div>
   );

@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { ethers, utils } from "ethers";
 
 interface IAsset {
-  address: string;
-  name: string;
-  decimals: number;
-  symbol: string;
-  logoURI: string;
   chain: string;
+  collectionAddress: string;
+  collectionName: string;
+  collectionTokenId: string;
+  currentOwner: string;
+  description: string;
+  imageUrl: string;
+  name: string;
   network: string;
-  amount: string;
+  provenance?: [];
+  traits?: [];
 }
 
 interface IInfo {
@@ -22,7 +25,7 @@ interface IInfo {
 
 function useQuicknodeTokensApi(quickNodeRpc: string) {
   const [address, setAddress] = useState("");
-  const [tokenBalances, setTokenBalances] = useState<IAsset[]>();
+  const [nfts, setNfts] = useState<IAsset[]>();
   const [loading, setLoading] = useState<boolean>(false);
   const provider = new ethers.providers.JsonRpcProvider(quickNodeRpc);
 
@@ -34,25 +37,14 @@ function useQuicknodeTokensApi(quickNodeRpc: string) {
       }
       try {
         setLoading(true);
-        const result: IInfo = await provider.send("qn_getWalletTokenBalance", {
+        const result: IInfo = await provider.send("qn_fetchNFTs", {
           wallet: walletAddress,
           page: 1,
         } as any);
         const pages = result.totalPages;
-        const allTokens: IAsset[] = [];
 
-        for (let i = 1; i < pages; i++) {
-          const tokenPage: IInfo = await provider.send(
-            "qn_getWalletTokenBalance",
-            {
-              wallet: walletAddress,
-              page: i,
-            } as any
-          );
-          allTokens.push(...tokenPage.assets);
-        }
-        console.log("total tokens", allTokens.length);
-        setTokenBalances(allTokens);
+        console.log("nfts", pages, result);
+        setNfts(result.assets);
         setLoading(false);
         return result;
       } catch (error) {
@@ -63,7 +55,7 @@ function useQuicknodeTokensApi(quickNodeRpc: string) {
     fetchBalances(address);
   }, [address]);
 
-  return { tokenBalances, loading, setAddress };
+  return { nfts, loading, setAddress };
 }
 
 export default useQuicknodeTokensApi;
