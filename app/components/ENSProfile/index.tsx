@@ -1,27 +1,27 @@
-import React from "react";
-import { IENSProfile } from "../../hooks/types";
+import React from 'react'
+import { IENSProfile } from '../../types'
 
 interface Props {
-  profile: IENSProfile | undefined | null;
+  profile: IENSProfile | undefined | null
 }
 
-function ENSProfile({ profile }: Props) {
-  console.log(profile);
+export const ENSProfile = ({ profile }: Props) => {
+  console.log(profile)
   if (profile)
     return (
       <>
-        <div className="flex gap-4 flex-col border-2 border-black rounded-xl">
-          <div className="text-6xl underline">{profile.name}</div>
-          <div className="">
+        <div className='flex gap-4 flex-col border-2 border-black rounded-xl'>
+          <div className='text-6xl underline'>{profile.name}</div>
+          <div className=''>
             <h1>coins</h1>
             {profile?.records?.coinTypes &&
               profile.records?.coinTypes.map((item) => {
                 return (
-                  <div className="flex flex-col gap-1 border-2 rounded border-black">
-                    <h1 className="uppercase">{item.coin}:</h1>
+                  <div key={item.key} className='flex flex-col gap-1 border-2 rounded border-black'>
+                    <h1 className='uppercase'>{item.coin}:</h1>
                     <p>{item.value}</p>
                   </div>
-                );
+                )
               })}
           </div>
           <div>
@@ -30,16 +30,14 @@ function ENSProfile({ profile }: Props) {
           {profile?.records?.texts &&
             profile.records?.texts.map((item) => {
               return (
-                <div className="flex flex-col gap-1 border-2 rounded border-black">
-                  <h1 className="uppercase">{item.key}:</h1>
+                <div key={item.key} className='flex flex-col gap-1 border-2 rounded border-black'>
+                  <h1 className='uppercase'>{item.key}:</h1>
                   <p>{item.value}</p>
                 </div>
-              );
+              )
             })}
         </div>
       </>
-    );
-  return <></>;
+    )
+  return <></>
 }
-
-export default ENSProfile;

@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@el-chanclas-del-tianguis/web3-react-components": "^0.0.9",
     "@ensdomains/ensjs": "^3.0.0-alpha.20",
     "ethers": "^5.7.0",
     "next": "latest",

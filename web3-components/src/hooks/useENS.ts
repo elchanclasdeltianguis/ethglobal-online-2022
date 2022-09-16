@@ -3,7 +3,7 @@ import { ethers } from 'ethers'
 import { ENS } from '@ensdomains/ensjs'
 import { IENSProfile } from '../types'
 
-function useENS(account: string | undefined, rpc: string | undefined) {
+export const useENS = (account: string | undefined, rpc: string | undefined) => {
   const [ENSname, setENSProfile] = useState<IENSProfile | null | undefined>(undefined)
 
   useEffect(() => {
@@ -24,5 +24,3 @@ function useENS(account: string | undefined, rpc: string | undefined) {
   }, [account, rpc])
   return ENSname
 }
-
-export default useENS
