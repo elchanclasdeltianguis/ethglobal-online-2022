@@ -29,7 +29,7 @@ function useQuicknodeTokensApi(quickNodeRpc: string) {
   useEffect(() => {
     const fetchBalances = async (walletAddress: string) => {
       if (!utils.isAddress(walletAddress)) {
-        alert("address not valid: ".concat(walletAddress));
+        // alert("address not valid: ".concat(walletAddress));
         return;
       }
       try {
