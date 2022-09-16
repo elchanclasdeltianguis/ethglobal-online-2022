@@ -21,7 +21,7 @@ interface IInfo {
 }
 
 interface Props {
-  balances: IInfo | undefined | null;
+  balances: IAsset[] | undefined | null;
 }
 
 export default function QuicknodeTokens({ balances }: Props) {
@@ -29,7 +29,7 @@ export default function QuicknodeTokens({ balances }: Props) {
     <div className="border-2 border-black p-4 rounded-xl">
       QuicknodeTokens
       <div className="space-y-4">
-        {balances?.assets.map((asset: IAsset) => (
+        {balances?.map((asset: IAsset) => (
           <div
             key={asset.address}
             className="border-2 rounded-xl w-auto py-4 bg-sky-300"

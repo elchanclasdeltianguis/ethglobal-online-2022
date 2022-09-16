@@ -22,7 +22,7 @@ interface IInfo {
 
 function useQuicknodeTokensApi(quickNodeRpc: string) {
   const [address, setAddress] = useState("");
-  const [tokenBalances, setTokenBalances] = useState<IInfo>();
+  const [tokenBalances, setTokenBalances] = useState<IAsset[]>();
   const [loading, setLoading] = useState<boolean>(false);
   const provider = new ethers.providers.JsonRpcProvider(quickNodeRpc);
 
@@ -36,9 +36,23 @@ function useQuicknodeTokensApi(quickNodeRpc: string) {
         setLoading(true);
         const result: IInfo = await provider.send("qn_getWalletTokenBalance", {
           wallet: walletAddress,
+          page: 1,
         } as any);
-        console.log(result);
-        setTokenBalances(result);
+        const pages = result.totalPages;
+        const allTokens: IAsset[] = [];
+
+        for (let i = 1; i < pages; i++) {
+          const tokenPage: IInfo = await provider.send(
+            "qn_getWalletTokenBalance",
+            {
+              wallet: walletAddress,
+              page: i,
+            } as any
+          );
+          allTokens.push(...tokenPage.assets);
+        }
+        console.log("total tokens", allTokens.length);
+        setTokenBalances(allTokens);
         setLoading(false);
         return result;
       } catch (error) {
