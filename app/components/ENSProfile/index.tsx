@@ -2,7 +2,7 @@ import React from "react";
 import { IENSProfile } from "../../hooks/types";
 
 interface Props {
-  profile: IENSProfile | undefined;
+  profile: IENSProfile | undefined | null;
 }
 
 function ENSProfile({ profile }: Props) {
@@ -19,7 +19,7 @@ function ENSProfile({ profile }: Props) {
                 return (
                   <div className="flex flex-col gap-1 border-2 rounded border-black">
                     <h1 className="uppercase">{item.coin}:</h1>
-                    <p>{item.addr}</p>
+                    <p>{item.value}</p>
                   </div>
                 );
               })}
