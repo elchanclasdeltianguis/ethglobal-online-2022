@@ -1,12 +1,12 @@
 import React from 'react'
-import { IENSProfile } from '../../types'
+import { IENSProfile } from './types'
 
 interface Props {
   profile: IENSProfile | undefined | null
 }
 
 export const ENSProfile = ({ profile }: Props) => {
-  console.log(profile)
+  // console.log(profile)
   if (profile)
     return (
       <>
