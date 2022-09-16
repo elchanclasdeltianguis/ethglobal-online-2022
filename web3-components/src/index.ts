@@ -1,1 +1,1 @@
-export * from  "./components/ENSProfile";
+export * from './components/ENSProfile'

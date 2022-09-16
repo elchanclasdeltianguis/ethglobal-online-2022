@@ -1,13 +1,24 @@
 {
   "compilerOptions": {
+    "module": "es6",
     "strict": true,
     "jsx": "react",
     "declaration": true,
     "esModuleInterop": true,
-    "outDir": "dist",
     "target": "es6",
-    "module": "es6",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["dist", "node_modules"]
 }
