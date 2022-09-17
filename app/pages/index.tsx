@@ -32,11 +32,19 @@ const Home: NextPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       {/* header */}
-      <div className="h-24 text-6xl flex justify-center items-center">
-        <h1> react tailwind web3 ui kit</h1>
+      <div className="py-8 text-6xl flex justify-center items-center bg-gray-400">
+        <h1>react tailwind web3 ui kit</h1>
       </div>
-      <main className="w-full bg-sky-100 p-24">
+      <main className="w-full bg-white p-24">
         {/* components */}
         <div className="mx-16 flex flex-cols items-center justify-center gap-8">
           <ENSProfile profile={profile} />

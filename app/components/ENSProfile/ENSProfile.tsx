@@ -17,35 +17,45 @@ export const ENSProfile = ({ profile }: Props) => {
   const label = profile?.name;
 
   const profileInfo: IProfileInfo = {};
-  const info = profile?.records?.texts.map(
-    (item) => (profileInfo[item.key] = item.value)
-  );
+  profile?.records?.texts.map((item) => (profileInfo[item.key] = item.value));
 
   if (profile)
     return (
       <>
-        <div className="flex gap-4 flex-col border-2 border-black rounded-xl px-6 py-12">
-          <div className="text-xl">{label}</div>
-          <p>{profileInfo.description}</p>
-          <p>email: {profileInfo.email}</p>
-          <p>url: {profileInfo.url}</p>
-          <p>keywords: {profileInfo.keywords}</p>
-          {/* socials */}
-          <div className="space-x-4">
-            {profile?.records?.texts &&
-              profile.records?.texts.map((item) => {
-                return (
-                  item.value.includes("https") && (
-                    <SocialIcon
-                      url={item.value}
-                      fgColor="#333"
-                      bgColor="transparent"
-                    />
-                  )
-                );
-              })}
+        <div
+          className="w-[460px] h-[600px] border-4 border-gray6 
+          font-mono bg-white rounded-[16px] py-[20px] px-[16px] 
+          flex flex-col items-start shadow-[-4px_4px_0px_0px] 
+          shadow-gray6"
+        >
+          {/* TOP SECTION */}
+          <div className="w-[420px] flex flex-col items-start justify-center space-y-[4px]">
+            <div className="text-gray1 text-xl">{label}</div>
+            <div className="text-gray3">{profileInfo.description}</div>
           </div>
-          {/* <section id="COINS" className="">
+          {/* spacer */}
+          <div className="w-[428px] border-b-[3px] border-gray6"></div>
+          {/* TEXT */}
+          <div className="w-[428px] h-[472px] text-gray3">
+            <p>email: {profileInfo.email}</p>
+            <p>url: {profileInfo.url}</p>
+            <p>keywords: {profileInfo.keywords}</p>
+            {/* socials */}
+            <div className="space-x-4">
+              {profile?.records?.texts &&
+                profile.records?.texts.map((item) => {
+                  return (
+                    item.value.includes("https") && (
+                      <SocialIcon
+                        url={item.value}
+                        fgColor="#333"
+                        bgColor="transparent"
+                      />
+                    )
+                  );
+                })}
+            </div>
+            {/* <section id="COINS" className="">
             <h1>coins</h1>
             {profile?.records?.coinTypes &&
               profile.records?.coinTypes.map((item) => {
@@ -60,6 +70,7 @@ export const ENSProfile = ({ profile }: Props) => {
                 );
               })}
           </section> */}
+          </div>
         </div>
       </>
     );

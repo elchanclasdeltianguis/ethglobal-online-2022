@@ -5,9 +5,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    colors: {
+      gray1: "#333333",
+      gray3: "#828282",
+      gray6: "#F2F2F2",
+    },
     extend: {
       fontFamily: {
-        title: ["Indie Flower"],
+        mono: ["Roboto Mono"],
       },
     },
   },
