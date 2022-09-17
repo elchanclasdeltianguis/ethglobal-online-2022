@@ -5,6 +5,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontSize: {
+      descriptionSize: ["16px", "24px"],
+    },
     colors: {
       gray1: "#333333",
       gray3: "#828282",
