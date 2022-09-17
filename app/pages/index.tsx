@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   } = useQuicknodeAPINfts(quickNodeRpc);
 
   useEffect(() => {
-    setAddress("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
+    setAddress("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045"); // vitalik.eth
     setAddressnfts("0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
   }, []);
 
@@ -36,15 +36,15 @@ const Home: NextPage = () => {
       <div className="h-24 text-6xl flex justify-center items-center">
         <h1> react tailwind web3 ui kit</h1>
       </div>
-      <main className="w-full bg-sky-100">
+      <main className="w-full bg-sky-100 p-24">
         {/* components */}
         <div className="mx-16 flex flex-cols items-center justify-center gap-8">
           <ENSProfile profile={profile} />
-          {loading && <div>Loaading...</div>}
+          {/* {loading && <div>Loaading...</div>}
           {!loading && <QuicknodeTokens balances={tokenBalances} />}
 
           {loadingnfts && <div>Loading NFTS</div>}
-          {!loadingnfts && <QuicknodeNfts nfts={nfts} />}
+          {!loadingnfts && <QuicknodeNfts nfts={nfts} />} */}
         </div>
       </main>
     </div>
