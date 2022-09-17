@@ -34,7 +34,11 @@ const Home: NextPage = () => {
     <div className="flex min-h-screen flex-col items-center justify-center">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap"
           rel="stylesheet"

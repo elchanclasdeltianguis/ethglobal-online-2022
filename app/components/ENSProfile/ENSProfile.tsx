@@ -16,8 +16,8 @@ interface Props {
 export const ENSProfile = ({ profile }: Props) => {
   const label = profile?.name;
 
-  const profileInfo: IProfileInfo = {};
-  profile?.records?.texts.map((item) => (profileInfo[item.key] = item.value));
+  const profileInfo: any = {};
+  profile?.records?.texts?.map((item) => (profileInfo[item.key] = item.value));
 
   if (profile)
     return (
@@ -29,8 +29,10 @@ export const ENSProfile = ({ profile }: Props) => {
           shadow-gray6"
         >
           {/* TOP SECTION */}
-          <div className="w-[428px] h-[56px] gap-1 flex flex-col 
-          items-start justify-center space-y-[4px]">
+          <div
+            className="w-[428px] h-[56px] gap-1 flex flex-col 
+          items-start justify-center space-y-[4px]"
+          >
             <div className="text-gray1 text-xl">{label}</div>
             <div className="text-gray3 text-descriptionSize">
               {profileInfo.description}
