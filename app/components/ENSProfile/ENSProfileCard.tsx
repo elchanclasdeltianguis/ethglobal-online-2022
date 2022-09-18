@@ -13,7 +13,7 @@ interface Props {
   profile: IENSProfile | undefined | null;
 }
 
-export const ENSProfile = ({ profile }: Props) => {
+export const ENSProfileCard = ({ profile }: Props) => {
   const label = profile?.name;
 
   const profileInfo: any = {};

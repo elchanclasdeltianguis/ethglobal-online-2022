@@ -1,1 +1,1 @@
-export * from './ENSProfile'
+export * from './ENSProfileCard'
