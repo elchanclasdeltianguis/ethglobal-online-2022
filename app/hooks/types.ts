@@ -29,3 +29,21 @@ export interface IENSProfile {
   resolverAddress?: string | undefined;
   reverseResolverAddress?: string | undefined;
 }
+
+export interface ITransfer 
+ {
+        "key": string
+        "date": string
+        "transferFlow":string
+        "from": string
+        "to": string
+        "tokenName": string
+        "tokenSymbol": string
+        "tokenLogo": string
+        "transferValue": number
+        "tokenAddress": string
+        "txnHash": string
+        "isMultipleTransfers": boolean
+        "isERC721": boolean
+        "multipleTransfers":  any[]
+    }

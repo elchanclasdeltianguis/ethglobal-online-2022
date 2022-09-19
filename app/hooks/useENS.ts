@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import { ENS } from "@ensdomains/ensjs";
 import { IENSProfile } from "./types";
 
-function useENS(rpc: string) {
+export function useENS(rpc: string) {
   const [ENSProfile, setENSProfile] = useState<IENSProfile | undefined>(
     undefined
   );
@@ -11,6 +11,7 @@ function useENS(rpc: string) {
   const getProfile = useCallback(
     (account: string) => {
       const fetchENSProfile = async (address: string) => {
+        console.log("start fetching");
         const ENSInstance = new ENS();
         const provider = new ethers.providers.JsonRpcProvider(rpc);
         await ENSInstance.setProvider(provider);
@@ -18,6 +19,7 @@ function useENS(rpc: string) {
         const profile: IENSProfile | undefined = address
           ? await ENSInstance.getProfile(address)
           : undefined;
+        console.log("fetched profile: ", profile);
         if (profile) {
           setENSProfile(profile);
         } else {
@@ -25,6 +27,7 @@ function useENS(rpc: string) {
         }
       };
       if (account) {
+        console.log("has account", account);
         fetchENSProfile(account);
       }
     },
@@ -32,5 +35,4 @@ function useENS(rpc: string) {
   );
   return { ENSProfile, getProfile };
 }
-
 export default useENS;
