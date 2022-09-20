@@ -8,14 +8,16 @@
   "dependencies": {
     "@el-chanclas-del-tianguis/web3-react-components": "^0.0.9",
     "@ensdomains/ensjs": "^3.0.0-alpha.20",
+    "@heroicons/react": "^2.0.11",
     "@tableland/sdk": "^3.1.2",
     "ethers": "^5.7.0",
-    "heroicons": "^2.0.11",
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0",
+    "react-jazzicon": "^1.0.4",
     "react-social-icons": "^5.14.0",
-    "recoil": "^0.7.5"
+    "recoil": "^0.7.5",
+    "truncate-eth-address": "^1.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.35",

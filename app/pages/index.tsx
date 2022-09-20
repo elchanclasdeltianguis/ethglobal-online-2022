@@ -24,7 +24,7 @@ const Home: NextPage = () => {
   };
 
   const handleAddContact = () => {
-    !ethers.utils.isAddress(message) && alert("Not a valid address!");
+    // !ethers.utils.isAddress(message) && alert("Not a valid address!");
     const x = [...contacts];
     x.push(message);
     setContacts(x);
@@ -33,7 +33,8 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <div className="space-y-8 mt-8">
-        <div className="flex flex-col space-y-8">
+        {/* INPUT BOX */}
+        <div className="flex flex-col space-y-8 mb-20">
           <input
             type="text"
             id="message"
@@ -53,7 +54,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* GRID */}
-      <div className={`grid grid-cols-3 gap-2`}>
+      <div className={`grid grid-cols-2 gap-4`}>
         {contacts.map((contact) => {
           return (
             <>
