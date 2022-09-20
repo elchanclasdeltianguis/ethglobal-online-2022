@@ -8,6 +8,7 @@ module.exports = {
     fontSize: {
       descriptionSize: ["16px", "24px"],
       headertext: ["20px", "30px"],
+      label: ["20px", "28px"],
     },
     colors: {
       gray1: "#333333",

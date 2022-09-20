@@ -1,11 +1,6 @@
 import React from "react";
 
-
-
 type Props = {};
-
-
-
 
 function Header({}: Props) {
   return (
@@ -18,7 +13,7 @@ function Header({}: Props) {
         className="font-normal text-white bg-black flex-grow-0 inline
                       text-center h-[30px] w-[94px] text-headertext"
       >
-        text
+        My0xContacts
       </div>
       {/* frame 39729 */}
       <div className="flex flex-row h-[60px] w-[400px] gap-4 items-start">

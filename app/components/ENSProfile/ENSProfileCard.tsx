@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IENSProfile } from "./types";
 import { SocialIcon } from "react-social-icons";
+import { useENS } from "../../hooks";
 
 interface IProfileInfo {
   email?: string;
@@ -10,16 +11,24 @@ interface IProfileInfo {
 }
 
 interface Props {
-  profile: IENSProfile | undefined | null;
+  address: string;
+  // profile: IENSProfile | undefined | null;
 }
 
-export const ENSProfileCard = ({ profile }: Props) => {
-  const label = profile?.name;
+export const ENSProfileCard = ({ address }: Props) => {
+  const { ENSProfile, getProfile } = useENS("https://cloudflare-eth.com/");
+  console.log("card", address), ENSProfile;
+
+  useEffect(() => {
+    getProfile(address);
+  }, [address]);
 
   const profileInfo: any = {};
-  profile?.records?.texts?.map((item) => (profileInfo[item.key] = item.value));
+  ENSProfile?.records?.texts?.map(
+    (item) => (profileInfo[item.key] = item.value)
+  );
 
-  if (profile)
+  if (ENSProfile)
     return (
       /* container */
       <div
@@ -33,7 +42,7 @@ export const ENSProfileCard = ({ profile }: Props) => {
           className="w-[428px] h-[56px] gap-1 flex flex-col 
           items-start justify-center space-y-[4px]"
         >
-          <div className="text-gray1 text-xl">{label}</div>
+          <div className="text-gray1 text-label">{ENSProfile.name}</div>
           <div className="text-gray3 text-descriptionSize">
             {profileInfo.description}
           </div>
@@ -47,8 +56,8 @@ export const ENSProfileCard = ({ profile }: Props) => {
           <p>keywords: {profileInfo.keywords}</p>
           {/* socials */}
           <div className="space-x-4">
-            {profile?.records?.texts &&
-              profile.records?.texts.map((item) => {
+            {ENSProfile?.records?.texts &&
+              ENSProfile.records?.texts.map((item) => {
                 return (
                   item.value.includes("https") && (
                     <SocialIcon
