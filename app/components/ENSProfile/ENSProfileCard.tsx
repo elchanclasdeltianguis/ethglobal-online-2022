@@ -9,8 +9,6 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import EnsComponentExpanded from "./ens-component-expanded";
 import EnsComponentCollapsed from "./ens-component-collapsed";
 
-
-
 interface Props {
   address: string;
   // profile: IENSProfile | undefined | null;
@@ -18,8 +16,6 @@ interface Props {
 
 export const ENSProfileCard = ({ address }: Props) => {
   const { ENSProfile, getProfile } = useENS("https://cloudflare-eth.com/");
-  console.log("card", address), ENSProfile;
-  const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
 
   useEffect(() => {
     getProfile(address);

@@ -6,7 +6,6 @@ import { SocialIcon } from "react-social-icons";
 import Jazzicon from "react-jazzicon";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
-import EnsComponentCollapsed from "./ens-component-collapsed";
 
 interface EnsComponentExpandedInterface {
   ENSProfile: IENSProfile;
@@ -21,6 +20,7 @@ export default function EnsComponentExpanded({
 }: EnsComponentExpandedInterface) {
   const [collapsed, setCollapsed] = useState(false);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
+  const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
 
   const handleDeleteContact = () => {
     const filtered = contacts.filter(
@@ -33,6 +33,7 @@ export default function EnsComponentExpanded({
   const handleCollapse = () => {
     setCollapsed(!collapsed);
   };
+
 
   return (
     <>
@@ -87,7 +88,7 @@ export default function EnsComponentExpanded({
                 ENSProfile.records?.coinTypes?.map((item) => (
                   <>
                     <p className="text-[rgba(130,130,130,1)]">{item.coin}</p>
-                    <p className="text-black">{item.value}</p>
+                    <p className="text-black">{item.addr}</p>
                     <div className="flex items-start gap-2">
                       <p className="text-[rgba(82,0,255,1)]">QR code</p>
                       <p className="text-black">

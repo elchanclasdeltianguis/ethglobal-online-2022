@@ -22,6 +22,7 @@ export interface IENSProfile {
               type: "addr" | "text" | "contentHash";
               coin?: string | undefined;
               value: string;
+              addr?: string;
             }[]
           | undefined;
       }
@@ -30,20 +31,19 @@ export interface IENSProfile {
   reverseResolverAddress?: string | undefined;
 }
 
-export interface ITransfer 
- {
-        "key": string
-        "date": string
-        "transferFlow":string
-        "from": string
-        "to": string
-        "tokenName": string
-        "tokenSymbol": string
-        "tokenLogo": string
-        "transferValue": number
-        "tokenAddress": string
-        "txnHash": string
-        "isMultipleTransfers": boolean
-        "isERC721": boolean
-        "multipleTransfers":  any[]
-    }
+export interface ITransfer {
+  key: string;
+  date: string;
+  transferFlow: string;
+  from: string;
+  to: string;
+  tokenName: string;
+  tokenSymbol: string;
+  tokenLogo: string;
+  transferValue: number;
+  tokenAddress: string;
+  txnHash: string;
+  isMultipleTransfers: boolean;
+  isERC721: boolean;
+  multipleTransfers: any[];
+}

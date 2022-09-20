@@ -26,7 +26,6 @@ const Home: NextPage = () => {
   const handleAddContact = () => {
     // !ethers.utils.isAddress(message) && alert("Not a valid address!");
     if (contacts.includes(message)) {
-      console.log("wwas", message, contacts, contacts.includes(message));
       return;
     }
     const x = [...contacts];

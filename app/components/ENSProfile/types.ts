@@ -22,6 +22,7 @@ export interface IENSProfile {
               type: "addr" | "text" | "contentHash";
               coin?: string | undefined;
               value: string;
+              addr?: string;
             }[]
           | undefined;
       }
