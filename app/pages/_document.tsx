@@ -22,13 +22,20 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="true"
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto Mono:wght@700"
           />
           <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono:wght@700&display=swap"
             rel="stylesheet"
+            href="https://api.fontshare.com/css?f[]=roboto mono@700&display=swap"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@700"
+          />
+          <link
+            rel="stylesheet"
+            href="https://api.fontshare.com/css?f[]=roboto@700&display=swap"
           />
         </Head>
         <body>
