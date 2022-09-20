@@ -34,7 +34,7 @@ export const ENSProfileCard = ({ address }: Props) => {
   );
 
   return (
-    /* container */
+    /* CARD */
     <div
       className="w-[460px] h-[80px] border-4 border-gray6 
             font-mono bg-white rounded-[16px]
@@ -57,23 +57,44 @@ export const ENSProfileCard = ({ address }: Props) => {
             {ENSProfile?.name ? ENSProfile.name : truncateEthAddress(address)}
           </div>
         </div>
-        <div className="w-6 h-6 bg-gray5 rounded-full flex items-center justify-center">
-          <svg
-            width="12"
-            height="8"
-            viewBox="0 0 12 8"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 2L6 6L2 2"
-              stroke="black"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
+        <button
+          className="w-6 h-6 bg-gray5 rounded-full flex items-center justify-center cursor-pointer"
+          onClick={() => setCollapsed(!collapsed)}
+        >
+          {collapsed ? (
+            <svg
+              width="12"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10 2L6 6L2 2"
+                stroke="black"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          ) : (
+            <svg
+              width="12"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2 6L6 2L10 6"
+                stroke="black"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          )}
+        </button>
       </div>
       {/* COLLAPSED */}
       <section id="collapsable">
