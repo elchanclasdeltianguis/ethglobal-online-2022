@@ -16,7 +16,6 @@
     "react-dom": "18.1.0",
     "react-jazzicon": "^1.0.4",
     "react-social-icons": "^5.14.0",
-    "react-use-window-localstorage": "^1.0.17",
     "recoil": "^0.7.5",
     "truncate-eth-address": "^1.0.2"
   },

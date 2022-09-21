@@ -17,20 +17,26 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   const [initialized, setInitialized] = useState(false);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
-  const [value, setValue, loading, available] = useLocalStorageObject(
-    "My0xContacts",
-    []
-  );
 
   // load from local storage if available and contacts empty, only once
   useEffect(() => {
-    if (contacts.length === 0 && value.length !== 0 && !initialized) {
-      console.log("not initialized");
-      console.log(initialized, value, loading, available);
-      setContacts(value);
-      setInitialized(true);
+    if (typeof window !== "undefined") {
+      const storedContacts = localStorage.getItem("My0xContacts");
+      const storedContactsJSON = JSON.parse(
+        storedContacts ? storedContacts : ""
+      );
+      console.log("stored contacts", storedContactsJSON);
+      if (
+        contacts.length === 0 &&
+        storedContactsJSON.length !== 0 &&
+        !initialized
+      ) {
+        console.log("not initialized");
+        setContacts(storedContactsJSON);
+        setInitialized(true);
+      }
     }
-  }, [contacts, value, initialized]);
+  }, [contacts, initialized]);
 
   return (
     <Layout>

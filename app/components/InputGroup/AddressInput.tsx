@@ -2,12 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
-import { useLocalStorageObject } from "react-use-window-localstorage";
 
 export default function AddressInput() {
   const [message, setMessage] = useState("");
   const [contacts, setContacts] = useRecoilState(contactsAtom);
-  const [value, setValue] = useLocalStorageObject("My0xContacts");
 
   // handles change in input field
   const handleChange = (event: any) => {
@@ -30,8 +28,7 @@ export default function AddressInput() {
     const deconstructedContacts = [...contacts];
     deconstructedContacts.push(message);
     setContacts(deconstructedContacts);
-    setValue(deconstructedContacts);
-    console.log("contacts storedcontacts", contacts, value);
+    localStorage.setItem("My0xContacts", JSON.stringify(deconstructedContacts));
     setMessage("");
   };
 

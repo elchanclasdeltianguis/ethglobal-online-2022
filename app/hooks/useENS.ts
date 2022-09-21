@@ -19,7 +19,7 @@ export function useENS(rpc: string) {
         const profile: IENSProfile | undefined = address
           ? await ENSInstance.getProfile(address)
           : undefined;
-        console.log("fetched profile: ", profile);
+        // console.log("fetched profile: ", profile);
         if (profile) {
           setENSProfile(profile);
         } else {

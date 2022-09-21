@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import IcoChevronDown12 from "./ico_chevron_down12";
 import { IENSProfile } from "./types";
 import truncateEthAddress from "truncate-eth-address";
@@ -6,8 +6,7 @@ import { SocialIcon } from "react-social-icons";
 import Jazzicon from "react-jazzicon";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
-import { ethers, utils } from "ethers";
-import { useLocalStorageObject } from "react-use-window-localstorage";
+import { Contract, ethers, utils } from "ethers";
 
 // import { CopyToClipboard } from "react-copy-to-clipboard";
 
@@ -22,9 +21,9 @@ export default function ENSProfileCard({
   address,
   profileInfo,
 }: EnsComponentExpandedInterface) {
-  const [value, setValue] = useLocalStorageObject("My0xContacts");
   const [collapsed, setCollapsed] = useState(true);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
+  const [deleted, setDeleted] = useState(false);
   const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
   const addressForJazzIcon = utils.isAddress(address)
     ? address
@@ -37,12 +36,14 @@ export default function ENSProfileCard({
   );
 
   const handleDeleteContact = () => {
-    const filtered = contacts.filter(
+    const filtered: string[] = contacts.filter(
       (contact: string) => !(contact === address)
     );
-    setContacts(filtered);
-    setValue(filtered);
-    console.log("check if deleted: ", contacts, value, filtered);
+
+    if (typeof window !== "undefined") {
+      setContacts(filtered);
+      localStorage.setItem("My0xContacts", JSON.stringify(filtered));
+    }
   };
 
   const handleCollapse = () => {
