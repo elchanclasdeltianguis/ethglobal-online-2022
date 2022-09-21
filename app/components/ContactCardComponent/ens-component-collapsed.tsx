@@ -1,14 +1,14 @@
 import React from 'react'
 
-import IcoChevronDown7 from './assets/ico_chevron_down7'
-import IcoChevronDown8 from './assets/ico_chevron_down8'
-import IcoChevronDown9 from './assets/ico_chevron_down9'
-import IcoChevronDown10 from './assets/ico_chevron_down10'
-import IcoChevronDown11 from './assets/ico_chevron_down11'
-import IcoChevronDown3 from './assets/ico_chevron_down3'
-import IcoChevronDown4 from './assets/ico_chevron_down4'
-import IcoChevronDown5 from './assets/ico_chevron_down5'
-import IcoChevronDown6 from './assets/ico_chevron_down6'
+import IcoChevronDown7 from '../figmaAssets/ico_chevron_down7'
+import IcoChevronDown8 from '../figmaAssets/ico_chevron_down8'
+import IcoChevronDown9 from '../figmaAssets/ico_chevron_down9'
+import IcoChevronDown10 from '../figmaAssets/ico_chevron_down10'
+import IcoChevronDown11 from '../figmaAssets/ico_chevron_down11'
+import IcoChevronDown3 from '../figmaAssets/ico_chevron_down3'
+import IcoChevronDown4 from '../figmaAssets/ico_chevron_down4'
+import IcoChevronDown5 from '../figmaAssets/ico_chevron_down5'
+import IcoChevronDown6 from '../figmaAssets/ico_chevron_down6'
 
 export default function EnsComponentCollapsed(
   props: EnsComponentCollapsedInterface

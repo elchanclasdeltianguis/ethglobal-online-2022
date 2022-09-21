@@ -14,6 +14,7 @@ import { contactsAtom } from "../atoms/contactsAtom";
 /* CONMPONENTS */
 import Layout from "../components/Layout";
 import { ENSProfileCard } from "../components/ENSProfile";
+import AddressInput from "../components/InputGroup/AddressInput";
 
 /* TYPES */
 import type { NextPage } from "next";
@@ -63,8 +64,9 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <div className="space-y-8">
-        {/* INPUT BOX */}
+      <AddressInput />
+      {/* INPUT BOX */}
+      {/* <div className="space-y-8">
         <form
           className="flex flex-col space-y-8 mb-20"
           onSubmit={handleAddContact}
@@ -86,7 +88,8 @@ const Home: NextPage = () => {
             add
           </button>
         </form>
-      </div>
+      </div> */}
+
       {/* LISTAS
       <div className="flex space-x-8">
         <div>

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import IcoChevronDown12 from './assets/ico_chevron_down12'
-import IcoSocialWebsite from './assets/ico_social_website'
-import IcoSocialTelegram from './assets/ico_social_telegram'
-import IcoSocialGithub from './assets/ico_social_github'
+import IcoChevronDown12 from '../figmaAssets/ico_chevron_down12'
+import IcoSocialWebsite from '../figmaAssets/ico_social_website'
+import IcoSocialTelegram from '../figmaAssets/ico_social_telegram'
+import IcoSocialGithub from '../figmaAssets/ico_social_github'
 import IcoSocialReddit from './ico_social_reddit'
 
 export default function EnsComponentExpanded(

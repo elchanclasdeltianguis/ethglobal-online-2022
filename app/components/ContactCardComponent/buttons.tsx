@@ -1,9 +1,9 @@
 import React from 'react'
 
-import IcoChevronDown1 from './assets/ico_chevron_down1'
-import IcoChevronDown from './assets/ico_chevron_down'
+import IcoChevronDown1 from '../figmaAssets/ico_chevron_down1'
+import IcoChevronDown from '../figmaAssets/ico_chevron_down'
 import IcoEth from './ico_eth'
-import IcoChevronDown2 from './assets/ico_chevron_down2'
+import IcoChevronDown2 from '../figmaAssets/ico_chevron_down2'
 
 export default function Buttons(props: ButtonsInterface) {
   return (

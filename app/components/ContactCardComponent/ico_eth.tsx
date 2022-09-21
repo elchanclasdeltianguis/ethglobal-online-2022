@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Vector from './assets/vector'
-import Group from './assets/group'
+import Vector from '../figmaAssets/vector'
+import Group from '../figmaAssets/group'
 
 export default function IcoEth(props: IcoEthInterface) {
   return (

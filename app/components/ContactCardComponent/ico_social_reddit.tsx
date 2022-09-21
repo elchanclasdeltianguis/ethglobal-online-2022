@@ -1,11 +1,11 @@
 import React from 'react'
 
-import Vector1 from './assets/vector1'
-import Vector3 from './assets/vector3'
-import Ellipse6 from './assets/ellipse6'
-import Vector2 from './assets/vector2'
-import Ellipse10 from './assets/ellipse10'
-import Ellipse11 from './assets/ellipse11'
+import Vector1 from '../figmaAssets/vector1'
+import Vector3 from '../figmaAssets/vector3'
+import Ellipse6 from '../figmaAssets/ellipse6'
+import Vector2 from '../figmaAssets/vector2'
+import Ellipse10 from '../figmaAssets/ellipse10'
+import Ellipse11 from '../figmaAssets/ellipse11'
 
 export default function IcoSocialReddit(props: IcoSocialRedditInterface) {
   return (

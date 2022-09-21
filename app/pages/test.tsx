@@ -1,7 +1,7 @@
 import React from "react";
 
 import CollapsedView from "../components/collapsedComponents/collapsed-view";
-import ExpandedView from "../components/expandedComponents/expanded-view";
+import ExpandedView from "../components/ContactCardComponent/expanded-view";
 
 type Props = {};
 
