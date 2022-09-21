@@ -1,6 +1,5 @@
 /* HOOKS */
 import { useEffect, useState } from "react";
-import { useLocalStorageObject } from "react-use-window-localstorage";
 import { useRecoilState } from "recoil";
 
 /* STATE */
