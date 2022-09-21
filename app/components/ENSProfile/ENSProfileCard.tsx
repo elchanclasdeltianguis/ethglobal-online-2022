@@ -7,7 +7,8 @@ import Jazzicon from "react-jazzicon";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
 import { ethers, utils } from "ethers";
-import { isStringObject } from "util/types";
+import { useLocalStorageObject } from "react-use-window-localstorage";
+
 // import { CopyToClipboard } from "react-copy-to-clipboard";
 
 interface EnsComponentExpandedInterface {
@@ -21,6 +22,7 @@ export default function ENSProfileCard({
   address,
   profileInfo,
 }: EnsComponentExpandedInterface) {
+  const [value, setValue] = useLocalStorageObject("My0xContacts");
   const [collapsed, setCollapsed] = useState(true);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
   const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
@@ -38,8 +40,9 @@ export default function ENSProfileCard({
     const filtered = contacts.filter(
       (contact: string) => !(contact === address)
     );
-    console.log(filtered);
     setContacts(filtered);
+    setValue(filtered);
+    console.log("check if deleted: ", contacts, value, filtered);
   };
 
   const handleCollapse = () => {
