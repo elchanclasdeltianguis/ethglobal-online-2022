@@ -10,7 +10,6 @@
     "@heroicons/react": "^2.0.11",
     "@tableland/sdk": "^3.1.2",
     "ethers": "^5.7.0",
-    "lodash": "^4.17.21",
     "next": "latest",
     "react": "18.1.0",
     "react-copy-to-clipboard": "^5.1.0",

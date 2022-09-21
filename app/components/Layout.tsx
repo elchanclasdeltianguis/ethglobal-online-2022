@@ -1,5 +1,4 @@
 import Header from "./Header/Header";
-import Nav2 from "./Header/nav2";
 interface Props {
   children: React.ReactNode;
 }

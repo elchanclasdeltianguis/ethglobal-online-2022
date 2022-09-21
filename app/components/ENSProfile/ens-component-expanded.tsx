@@ -6,7 +6,7 @@ import { SocialIcon } from "react-social-icons";
 import Jazzicon from "react-jazzicon";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
-import { CopyToClipboard } from "react-copy-to-clipboard";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 
 interface EnsComponentExpandedInterface {
   ENSProfile: IENSProfile;
@@ -100,9 +100,9 @@ export default function EnsComponentExpanded({
                         <br />
                       </p>
                       <p className="text-[rgba(82,0,255,1)]">
-                        <CopyToClipboard text={item.addr} onCopy>
+                        <p>
                           <button>Copy address</button>
-                        </CopyToClipboard>
+                        </p>
                       </p>
                     </div>
                   </>

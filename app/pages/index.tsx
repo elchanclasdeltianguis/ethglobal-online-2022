@@ -6,7 +6,6 @@ import { useRecoilState } from "recoil";
 
 /* LIBS */
 import { ethers } from "ethers";
-import _ from "lodash";
 
 /* STATE */
 import { contactsAtom } from "../atoms/contactsAtom";
@@ -40,22 +39,6 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <AddressInput />
-      {/* LISTAS */}
-      <div className="flex space-x-8">
-        <div>
-          <p className="underline">contacts</p>
-          {contacts.map((item) => (
-            <p>{item}</p>
-          ))}
-        </div>
-        <div>
-          <p className="underline">stored</p>
-          {value.map((item: string) => (
-            <p>{item}</p>
-          ))}
-        </div>
-      </div>
-      {/* GRID */}
       <div className={`grid grid-cols-2 gap-4`}>
         {contacts.map((contact) => {
           return (
