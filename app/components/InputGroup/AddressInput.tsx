@@ -40,14 +40,13 @@ export default function AddressInput() {
       className="flex items-center w-[640px] h-[60px] mb-[81px] justify-center"
       onSubmit={handleAddContact}
     >
-      <div className="inline-flex w-[620px] items-start gap-2 self-stretch">
+      <div className="flex w-[620px] items-center gap-2  justify-center">
         <input
           type="text"
           id="message"
           name="message"
           onChange={handleChange}
           value={message}
-          autoComplete="off"
           placeholder="Type an ENS or address here..."
           className={`inline-flex h-[60px] flex-1 flex-grow items-center gap-2 
           rounded-[40px] border-4 border-solid border-black bg-white 

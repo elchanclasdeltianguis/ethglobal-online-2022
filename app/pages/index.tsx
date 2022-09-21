@@ -1,18 +1,14 @@
 /* HOOKS */
 import { useEffect, useState } from "react";
-import { useENS } from "../hooks";
 import { useLocalStorageObject } from "react-use-window-localstorage";
 import { useRecoilState } from "recoil";
-
-/* LIBS */
-import { ethers } from "ethers";
 
 /* STATE */
 import { contactsAtom } from "../atoms/contactsAtom";
 
 /* CONMPONENTS */
 import Layout from "../components/Layout";
-import { ENSProfileCard } from "../components/ENSProfile";
+import { ENSProfileComponent } from "../components/ENSProfile";
 import AddressInput from "../components/InputGroup/AddressInput";
 
 /* TYPES */
@@ -43,7 +39,7 @@ const Home: NextPage = () => {
         {contacts.map((contact) => {
           return (
             <>
-              <ENSProfileCard address={contact} />
+              <ENSProfileComponent address={contact} />
             </>
           );
         })}
