@@ -22,7 +22,6 @@ import type { NextPage } from "next";
 const Home: NextPage = () => {
   const [initialized, setInitialized] = useState(false);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
-  const [message, setMessage] = useState("");
   const [value, setValue, loading, available] = useLocalStorageObject(
     "My0xContacts",
     []
@@ -38,59 +37,10 @@ const Home: NextPage = () => {
     }
   }, [contacts, value, initialized]);
 
-  // handles change in input field
-  const handleChange = (event: any) => {
-    setMessage(event.target.value);
-  };
-
-  // handles add contact
-  const handleAddContact = (e: any) => {
-    console.log("add contact");
-    e.preventDefault();
-
-    // !ethers.utils.isAddress(message) && alert("Not a valid address!");
-    if (contacts.includes(message)) {
-      console.log("contact already in book");
-      return;
-    }
-    if (message == "") return;
-
-    const deconstructedContacts = [...contacts];
-    deconstructedContacts.push(message);
-    setContacts(deconstructedContacts);
-    setValue(deconstructedContacts);
-    console.log("contacts storedcontacts", contacts, value);
-  };
-
   return (
     <Layout>
       <AddressInput />
-      {/* INPUT BOX */}
-      {/* <div className="space-y-8">
-        <form
-          className="flex flex-col space-y-8 mb-20"
-          onSubmit={handleAddContact}
-        >
-          <input
-            type="text"
-            id="message"
-            name="message"
-            onChange={handleChange}
-            value={message}
-            autoComplete="off"
-            placeholder="address"
-            className="text-center rounded-full "
-          />
-          <button
-            type="submit"
-            className="bg-gray1 text-white rounded-full py-1 "
-          >
-            add
-          </button>
-        </form>
-      </div> */}
-
-      {/* LISTAS
+      {/* LISTAS */}
       <div className="flex space-x-8">
         <div>
           <p className="underline">contacts</p>
@@ -104,8 +54,7 @@ const Home: NextPage = () => {
             <p>{item}</p>
           ))}
         </div>
-      </div> */}
-
+      </div>
       {/* GRID */}
       <div className={`grid grid-cols-2 gap-4`}>
         {contacts.map((contact) => {

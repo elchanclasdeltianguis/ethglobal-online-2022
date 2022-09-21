@@ -19,7 +19,7 @@ export default function EnsComponentExpanded({
   address,
   profileInfo,
 }: EnsComponentExpandedInterface) {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
   const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
 
@@ -38,7 +38,12 @@ export default function EnsComponentExpanded({
   return (
     <>
       {!collapsed && (
-        <div className="inline-flex w-[460px] flex-col items-start gap-4 rounded-2xl border-4 border-solid border-[rgba(242,242,242,1)] bg-white px-4 py-5 text-left font-['Roboto_Mono'] font-bold drop-shadow-lg">
+        <div
+          className="inline-flex w-[460px] flex-col items-start gap-4 
+                        rounded-2xl border-4 border-solid border-[rgba(242,242,242,1)]
+                        bg-white px-4 py-5 text-left font-['Roboto_Mono'] 
+                        font-bold drop-shadow-lg"
+        >
           <div className="flex w-[428px] items-center gap-2 self-stretch text-xl leading-7 text-black">
             <Jazzicon
               diameter={40}

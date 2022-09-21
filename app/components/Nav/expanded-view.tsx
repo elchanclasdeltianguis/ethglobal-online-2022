@@ -3,7 +3,7 @@ import React from 'react'
 import EnsComponentExpanded from './ens-component-expanded'
 import EnsComponentCollapsed from './ens-component-collapsed'
 import InputGroup from './input-group'
-import Nav2 from './nav2'
+import Nav2 from '../Header/nav2'
 
 export default function ExpandedView() {
   return (

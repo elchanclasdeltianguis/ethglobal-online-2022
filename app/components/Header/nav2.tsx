@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Buttons from './buttons'
+import Buttons from '..zz/Nav/buttons'
 
 export default function Nav2(props: Nav2Interface) {
   return (
