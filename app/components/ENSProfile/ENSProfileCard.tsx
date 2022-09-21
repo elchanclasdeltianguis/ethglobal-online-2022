@@ -26,10 +26,12 @@ export default function ENSProfileCard({
   const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
   const addressForJazzIcon = utils.isAddress(address)
     ? address
-    : ENSProfile.address;
+    : ENSProfile.address
+    ? ENSProfile.address
+    : "8";
 
   const jazzIconSeed = parseInt(
-    Math.round(Math.random() * Number(addressForJazzIcon))
+    Math.round(Math.random() * Number(addressForJazzIcon)).toString()
   );
 
   const handleDeleteContact = () => {

@@ -8,7 +8,7 @@ export default function Layout({ children }: Props) {
     <>
       {/* MAIN LAYOUT */}
       <Header />
-      <main className="min-h-screen flex flex-col items-center justify-center bg-bgcolor ">
+      <main className="flex flex-col items-center justify-center bg-bgcolor ">
         {children}
       </main>
     </>
