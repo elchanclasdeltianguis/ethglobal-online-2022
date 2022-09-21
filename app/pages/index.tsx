@@ -1,43 +1,74 @@
-import type { NextPage } from "next";
+/* HOOKS */
 import { useEffect, useState } from "react";
 import { useENS } from "../hooks";
-
-import { ENSProfileCard } from "../components/ENSProfile";
-import { ethers } from "ethers";
-
-import Layout from "../components/Layout";
+import { useLocalStorageObject } from "react-use-window-localstorage";
 import { useRecoilState } from "recoil";
+
+/* LIBS */
+import { ethers } from "ethers";
+import _ from "lodash";
+
+/* STATE */
 import { contactsAtom } from "../atoms/contactsAtom";
 
+/* CONMPONENTS */
+import Layout from "../components/Layout";
+import { ENSProfileCard } from "../components/ENSProfile";
+
+/* TYPES */
+import type { NextPage } from "next";
+
 const Home: NextPage = () => {
-  const chanclas = "0x0F04693d93C420d2685Dc53ced7141a7EBF9Cc91";
-  const vitalik = "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045";
+  const [initialized, setInitialized] = useState(false);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
   const [message, setMessage] = useState("");
+  const [value, setValue, loading, available] = useLocalStorageObject(
+    "My0xContacts",
+    []
+  );
 
+  // load from local storage if available and contacts empty, only once
   useEffect(() => {
-    setContacts([chanclas, vitalik]);
-  }, []);
+    if (contacts.length === 0 && value.length !== 0 && !initialized) {
+      console.log("not initialized");
+      console.log(initialized, value, loading, available);
+      setContacts(value);
+      setInitialized(true);
+    }
+  }, [contacts, value, initialized]);
 
+  // handles change in input field
   const handleChange = (event: any) => {
     setMessage(event.target.value);
   };
 
-  const handleAddContact = () => {
+  // handles add contact
+  const handleAddContact = (e: any) => {
+    console.log("add contact");
+    e.preventDefault();
+
     // !ethers.utils.isAddress(message) && alert("Not a valid address!");
     if (contacts.includes(message)) {
+      console.log("contact already in book");
       return;
     }
-    const x = [...contacts];
-    x.push(message);
-    setContacts(x);
+    if (message == "") return;
+
+    const deconstructedContacts = [...contacts];
+    deconstructedContacts.push(message);
+    setContacts(deconstructedContacts);
+    setValue(deconstructedContacts);
+    console.log("contacts storedcontacts", contacts, value);
   };
 
   return (
     <Layout>
-      <div className="space-y-8 mt-8">
+      <div className="space-y-8">
         {/* INPUT BOX */}
-        <div className="flex flex-col space-y-8 mb-20">
+        <form
+          className="flex flex-col space-y-8 mb-20"
+          onSubmit={handleAddContact}
+        >
           <input
             type="text"
             id="message"
@@ -49,13 +80,29 @@ const Home: NextPage = () => {
             className="text-center rounded-full "
           />
           <button
+            type="submit"
             className="bg-gray1 text-white rounded-full py-1 "
-            onClick={() => handleAddContact()}
           >
             add
           </button>
-        </div>
+        </form>
       </div>
+      {/* LISTAS
+      <div className="flex space-x-8">
+        <div>
+          <p className="underline">contacts</p>
+          {contacts.map((item) => (
+            <p>{item}</p>
+          ))}
+        </div>
+        <div>
+          <p className="underline">stored</p>
+          {value.map((item: string) => (
+            <p>{item}</p>
+          ))}
+        </div>
+      </div> */}
+
       {/* GRID */}
       <div className={`grid grid-cols-2 gap-4`}>
         {contacts.map((contact) => {

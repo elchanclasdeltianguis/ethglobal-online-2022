@@ -6,6 +6,7 @@ import { SocialIcon } from "react-social-icons";
 import Jazzicon from "react-jazzicon";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 interface EnsComponentExpandedInterface {
   ENSProfile: IENSProfile;
@@ -33,7 +34,6 @@ export default function EnsComponentExpanded({
   const handleCollapse = () => {
     setCollapsed(!collapsed);
   };
-
 
   return (
     <>
@@ -94,7 +94,11 @@ export default function EnsComponentExpanded({
                       <p className="text-black">
                         <br />
                       </p>
-                      <p className="text-[rgba(82,0,255,1)]">Copy address</p>
+                      <p className="text-[rgba(82,0,255,1)]">
+                        <CopyToClipboard text={item.addr} onCopy>
+                          <button>Copy address</button>
+                        </CopyToClipboard>
+                      </p>
                     </div>
                   </>
                 ))}
