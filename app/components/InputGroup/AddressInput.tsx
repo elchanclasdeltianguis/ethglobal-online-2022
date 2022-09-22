@@ -21,6 +21,19 @@ export default function AddressInput() {
     const isEthDomain = message.includes(".eth");
     const hasSpace = message.includes(" ");
 
+    console.log("test", isAddress, isEthDomain, hasSpace);
+
+    if (!(isAddress || isEthDomain)) {
+      alert("Contact domain or address is not good");
+      setMessage("");
+      return;
+    }
+    if (hasSpace) {
+      alert("contact has space");
+      setMessage("");
+      return;
+    }
+
     if (contacts.includes(message)) {
       console.log("contact already in book");
       setMessage("");
