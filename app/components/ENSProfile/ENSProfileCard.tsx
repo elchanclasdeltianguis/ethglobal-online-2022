@@ -201,7 +201,7 @@ export default function ENSProfileCard({
           text-black shadow-gray6 border-4 border-gray6 shadow-[-4px_4px_0px_0px]"
           >
             <div className="flex w-[420px] items-start gap-4 self-stretch text-xl font-bold">
-              <div className="h-6 w-6 opacity-[undefined] [background:url()_no-repeat_center_/_contain]" />
+              <div className="h-6 w-6 opacity-[undefined]" />
               <p className="h-6 w-[340px]">
                 {ENSProfile.name ? ENSProfile.name : address}
               </p>
