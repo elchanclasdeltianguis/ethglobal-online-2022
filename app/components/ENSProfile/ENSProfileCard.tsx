@@ -26,7 +26,8 @@ export default function ENSProfileCard({
   const [collapsed, setCollapsed] = useState(true);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
   const [deleted, setDeleted] = useState(false);
-  const [showQrModal, setShowQrModal] = useState<{
+  const [showQrModal, setShowQrModal] = useState<boolean>(false);
+  const [qrModalInfo, setQtModalInfo] = useState<{
     address?: string;
     coin?: string;
   }>({});
@@ -54,6 +55,16 @@ export default function ENSProfileCard({
 
   const handleCollapse = () => {
     setCollapsed(!collapsed);
+  };
+
+  interface qrInfo {
+    address: string;
+    coin: string;
+  }
+
+  const handleQrModal = (info: qrInfo) => {
+    setQtModalInfo(info);
+    setShowQrModal(true);
   };
 
   return (
@@ -123,11 +134,10 @@ export default function ENSProfileCard({
                       <button
                         className="text-[rgba(82,0,255,1)]"
                         onClick={() => {
-                          setShowQrModal(
-                            item.addr
-                              ? { address: item?.addr, coin: item.coin }
-                              : {}
-                          );
+                          handleQrModal({
+                            address: item.addr,
+                            coin: item.coin,
+                          });
                         }}
                       >
                         QR code
@@ -193,14 +203,14 @@ export default function ENSProfileCard({
               <p className="h-6 w-[340px]">
                 {ENSProfile.name ? ENSProfile.name : address}
               </p>
-              <button onClick={() => setShowQrModal({})}>
+              <button onClick={() => setShowQrModal(false)}>
                 <IcoX />
               </button>
             </div>
             <p className="w-full text-sm font-mono">
-              {showQrModal.coin}: 
+              {qrModalInfo.coin}:
               <span className="w-full text-sm font-mono">
-                {showQrModal.address}
+                {qrModalInfo.address}
               </span>
             </p>
             <div className="h-[420px] w-[420px] [background:url(https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/12087/c63eb0498495e2de012c8cb93d3584d6d9728227.webp)_center_/_cover]" />
