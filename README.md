@@ -5,6 +5,7 @@
 **contact list / phone book type app using ENS**  
 dev: @elchanclasdeltianguis  
 design: @raulmono
-
-url: https://ethglobal-online-2022.vercel.app/
-
+   
+urls:    
+[live demo](https://ethglobal-online-2022.vercel.app/)   
+[project page](https://ethglobal.com/showcase/myenscontacts-hk7vt)   
