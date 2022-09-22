@@ -8,6 +8,8 @@ import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
 import { ethers, utils } from "ethers";
 
+import IcoX from "../Modal/IcoX";
+
 import Modal from "../Modal/Modal";
 
 interface EnsComponentExpandedInterface {
@@ -24,7 +26,10 @@ export default function ENSProfileCard({
   const [collapsed, setCollapsed] = useState(true);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
   const [deleted, setDeleted] = useState(false);
-  const [showQrModal, setShowQrModal] = useState("");
+  const [showQrModal, setShowQrModal] = useState<{
+    address?: string;
+    coin?: string;
+  }>({});
   const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
   const addressForJazzIcon = utils.isAddress(address)
     ? address
@@ -53,14 +58,13 @@ export default function ENSProfileCard({
 
   return (
     <>
-      {!collapsed && (
+      {!collapsed && !showQrModal && (
         <div
           className="inline-flex w-[460px] flex-col items-start gap-4 
                         rounded-2xl border-4 border-solid border-[rgba(242,242,242,1)]
                         bg-white px-4 py-5 text-left font-['Roboto_Mono'] 
                         font-bold drop-shadow-lg"
         >
-          {showQrModal && <Modal address={showQrModal} />}
           <div className="flex w-[428px] items-center gap-2 self-stretch text-xl leading-7 text-black">
             <Jazzicon diameter={40} seed={jazzIconSeed} />
             {/* NAME */}
@@ -119,7 +123,11 @@ export default function ENSProfileCard({
                       <button
                         className="text-[rgba(82,0,255,1)]"
                         onClick={() => {
-                          setShowQrModal(item.addr ? item?.addr : "");
+                          setShowQrModal(
+                            item.addr
+                              ? { address: item?.addr, coin: item.coin }
+                              : {}
+                          );
                         }}
                       >
                         QR code
@@ -173,9 +181,41 @@ export default function ENSProfileCard({
           </div>
         </div>
       )}
+      {showQrModal && !collapsed && (
+        <div className="z-40">
+          <div
+            className="inline-flex flex-col items-center justify-center gap-2 rounded-2xl 
+          bg-white py-8 pl-[26px] pr-[26px] text-center font-['Roboto_Mono'] leading-7 
+          text-black shadow-gray6 border-4 border-gray6 shadow-[-4px_4px_0px_0px]"
+          >
+            <div className="flex w-[420px] items-start gap-4 self-stretch text-xl font-bold">
+              <div className="h-6 w-6 opacity-[undefined] [background:url()_no-repeat_center_/_contain]" />
+              <p className="h-6 w-[340px]">
+                {ENSProfile.name ? ENSProfile.name : address}
+              </p>
+              <button onClick={() => setShowQrModal({})}>
+                <IcoX />
+              </button>
+            </div>
+            <p className="w-full text-sm font-mono">
+              {showQrModal.coin}: 
+              <span className="w-full text-sm font-mono">
+                {showQrModal.address}
+              </span>
+            </p>
+            <div className="h-[420px] w-[420px] [background:url(https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/12087/c63eb0498495e2de012c8cb93d3584d6d9728227.webp)_center_/_cover]" />
+          </div>{" "}
+        </div>
+      )}
+
       {collapsed && (
         <>
-          <div className="inline-flex w-[460px] flex-col items-start gap-4 rounded-2xl border-4 border-solid border-[rgba(242,242,242,1)] bg-white px-4 py-5 text-left font-['Roboto_Mono'] text-xl font-bold leading-7 text-black drop-shadow-lg">
+          <div
+            className="inline-flex w-[460px] flex-col items-start gap-4 
+          rounded-2xl border-4 border-solid border-[rgba(242,242,242,1)] 
+          bg-white px-4 py-5 text-left font-['Roboto_Mono'] text-xl font-bold leading-7
+          text-black drop-shadow-lg "
+          >
             <div className="flex w-[428px] items-center gap-2 self-stretch">
               <div className="h-10 w-10 rounded-full" />
               <Jazzicon diameter={40} seed={jazzIconSeed} />
