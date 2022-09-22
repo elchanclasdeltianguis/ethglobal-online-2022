@@ -21,13 +21,15 @@ export default function AddressInput() {
     const isEthDomain = message.includes(".eth");
     const hasSpace = message.includes(" ");
 
-    console.log("test", isAddress, isEthDomain, hasSpace);
+    // validate contact
+    if (message == "") return;
 
     if (!(isAddress || isEthDomain)) {
       alert("Contact domain or address is not good");
       setMessage("");
       return;
     }
+
     if (hasSpace) {
       alert("contact has space");
       setMessage("");
@@ -39,8 +41,8 @@ export default function AddressInput() {
       setMessage("");
       return;
     }
-    if (message == "") return;
 
+    // add contact
     const deconstructedContacts = [...contacts];
     deconstructedContacts.push(message);
     setContacts(deconstructedContacts);
