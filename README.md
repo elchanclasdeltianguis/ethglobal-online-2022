@@ -6,6 +6,9 @@
 dev: @elchanclasdeltianguis  
 design: @raulmono
    
-urls:    
+### urls   
 [live demo](https://ethglobal-online-2022.vercel.app/)   
 [project page](https://ethglobal.com/showcase/myenscontacts-hk7vt)   
+
+![app view](images/MyENSContacts-vitalik.png "MyENSContacts")   
+![app view](images/MyENSContacts-vitalik-qr.png "MyENSContacts")   
