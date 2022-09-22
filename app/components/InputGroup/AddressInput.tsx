@@ -65,7 +65,7 @@ export default function AddressInput() {
           placeholder="Type an ENS or address here..."
           className={`inline-flex h-[60px] flex-1 flex-grow items-center gap-2 
           rounded-[40px] border-4 border-solid border-black bg-white 
-          p-[18px] text-center font-['Roboto_Mono'] text-base font-bold 
+          p-[18px] text-center font-['Roboto_Mono'] text-base font-bold outline-none
           leading-[18px] shadow-[#333333] shadow-[-4px_4px_0px_0px] ${
             message !== "" ? "text-black" : "text-[rgba(130,130,130,1)"
           }] 
