@@ -31,7 +31,9 @@ export default function ENSProfileCard({
     address?: string;
     coin?: string;
   }>({});
-  const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
+  const qr = (qrAddress: string) =>
+    `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${qrAddress}&choe=UTF-8`;
+
   const addressForJazzIcon = utils.isAddress(address)
     ? address
     : ENSProfile.address
@@ -135,8 +137,8 @@ export default function ENSProfileCard({
                         className="text-[rgba(82,0,255,1)]"
                         onClick={() => {
                           handleQrModal({
-                            address: item.addr,
-                            coin: item.coin,
+                            address: item.addr ? item.addr : "",
+                            coin: item.coin ? item.coin : "",
                           });
                         }}
                       >
@@ -213,8 +215,15 @@ export default function ENSProfileCard({
                 {qrModalInfo.address}
               </span>
             </p>
-            <div className="h-[420px] w-[420px] [background:url(https://uortjlczjmucmpaqqhqm.supabase.co/storage/v1/object/public/firejet-converted-images/12087/c63eb0498495e2de012c8cb93d3584d6d9728227.webp)_center_/_cover]" />
-          </div>{" "}
+            <img
+              src={qr(
+                qrModalInfo?.address
+                  ? qrModalInfo.address
+                  : "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+              )}
+              className="h-[420px] w-[420px] object-cover"
+            />
+          </div>
         </div>
       )}
 
