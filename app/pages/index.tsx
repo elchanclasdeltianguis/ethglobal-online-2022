@@ -18,24 +18,23 @@ const Home: NextPage = () => {
   const [contacts, setContacts] = useRecoilState(contactsAtom);
 
   // load from local storage if available and contacts empty, only once
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const storedContacts = localStorage.getItem("My0xContacts");
-  //     const storedContactsJSON = JSON.parse(
-  //       storedContacts ? storedContacts : ""
-  //     );
-  //     console.log("stored contacts", storedContactsJSON);
-  //     if (
-  //       contacts.length === 0 &&
-  //       storedContactsJSON.length !== 0 &&
-  //       !initialized
-  //     ) {
-  //       console.log("not initialized");
-  //       setContacts(storedContactsJSON);
-  //       setInitialized(true);
-  //     }
-  //   }
-  // }, [contacts, initialized]);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedContacts = localStorage.getItem("My0xContacts");
+      const storedContactsJSON = JSON.parse(
+        storedContacts ? storedContacts : "[]"
+      );
+      if (
+        contacts.length === 0 &&
+        storedContactsJSON.length !== 0 &&
+        !initialized
+      ) {
+        console.log("not initialized");
+        setContacts(storedContactsJSON);
+        setInitialized(true);
+      }
+    }
+  }, [contacts, initialized]);
 
   return (
     <Layout>
