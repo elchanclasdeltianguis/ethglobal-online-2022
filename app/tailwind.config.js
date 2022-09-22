@@ -4,6 +4,9 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  images: {
+    domains: ["chart.googleapis.com"],
+  },
   theme: {
     fontSize: {
       descriptionSize: ["16px", "24px"],

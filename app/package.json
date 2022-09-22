@@ -7,12 +7,12 @@
   },
   "dependencies": {
     "@ensdomains/ensjs": "^3.0.0-alpha.20",
+    "@headlessui/react": "^1.7.2",
     "@heroicons/react": "^2.0.11",
     "@tableland/sdk": "^3.1.2",
     "ethers": "^5.7.0",
     "next": "latest",
     "react": "18.1.0",
-    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.1.0",
     "react-jazzicon": "^1.0.4",
     "react-social-icons": "^5.14.0",

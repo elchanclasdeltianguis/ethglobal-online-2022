@@ -1,7 +1,7 @@
-import React from "react";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
+import { ethers } from "ethers";
 
 export default function AddressInput() {
   const [message, setMessage] = useState("");
@@ -17,7 +17,10 @@ export default function AddressInput() {
     console.log("add contact");
     e.preventDefault();
 
-    // !ethers.utils.isAddress(message) && alert("Not a valid address!");
+    const isAddress = ethers.utils.isAddress(message);
+    const isEthDomain = message.includes(".eth");
+    const hasSpace = message.includes(" ");
+
     if (contacts.includes(message)) {
       console.log("contact already in book");
       setMessage("");

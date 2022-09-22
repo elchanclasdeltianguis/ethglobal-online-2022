@@ -6,9 +6,9 @@ import { SocialIcon } from "react-social-icons";
 import Jazzicon from "react-jazzicon";
 import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
-import { Contract, ethers, utils } from "ethers";
+import { ethers, utils } from "ethers";
 
-// import { CopyToClipboard } from "react-copy-to-clipboard";
+import Modal from "../Modal/Modal";
 
 interface EnsComponentExpandedInterface {
   ENSProfile: IENSProfile;
@@ -24,6 +24,7 @@ export default function ENSProfileCard({
   const [collapsed, setCollapsed] = useState(true);
   const [contacts, setContacts] = useRecoilState(contactsAtom);
   const [deleted, setDeleted] = useState(false);
+  const [showQrModal, setShowQrModal] = useState("");
   const qr = `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${address}&choe=UTF-8`;
   const addressForJazzIcon = utils.isAddress(address)
     ? address
@@ -59,6 +60,7 @@ export default function ENSProfileCard({
                         bg-white px-4 py-5 text-left font-['Roboto_Mono'] 
                         font-bold drop-shadow-lg"
         >
+          {showQrModal && <Modal address={showQrModal} />}
           <div className="flex w-[428px] items-center gap-2 self-stretch text-xl leading-7 text-black">
             <Jazzicon diameter={40} seed={jazzIconSeed} />
             {/* NAME */}
@@ -105,13 +107,31 @@ export default function ENSProfileCard({
                     <p className="text-[rgba(130,130,130,1)]">{item.coin}</p>
                     <p className="text-black">{item.addr}</p>
                     <div className="flex items-start gap-2">
-                      <p className="text-[rgba(82,0,255,1)]">QR code</p>
+                      <button
+                        className="text-[rgba(82,0,255,1)]"
+                        onClick={() => {
+                          setShowQrModal(item.addr ? item?.addr : "");
+                        }}
+                      >
+                        QR code
+                      </button>
+
                       <p className="text-black">
                         <br />
                       </p>
                       <p className="text-[rgba(82,0,255,1)]">
                         <p>
-                          <button>Copy address</button>
+                          <button
+                            onClick={() => {
+                              navigator.clipboard.writeText(
+                                ENSProfile.address
+                                  ? ENSProfile.address
+                                  : address
+                              );
+                            }}
+                          >
+                            Copy address
+                          </button>
                         </p>
                       </p>
                     </div>
