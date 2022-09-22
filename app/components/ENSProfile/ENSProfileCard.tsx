@@ -8,9 +8,7 @@ import { useRecoilState } from "recoil";
 import { contactsAtom } from "../../atoms/contactsAtom";
 import { ethers, utils } from "ethers";
 
-import IcoX from "../Modal/IcoX";
-
-import Modal from "../Modal/Modal";
+import IcoX from "./IcoX";
 
 interface EnsComponentExpandedInterface {
   ENSProfile: IENSProfile;
