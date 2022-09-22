@@ -32,13 +32,13 @@ export default function ENSProfileCard({
     coin?: string;
   }>({});
   const qr = (qrAddress: string) =>
-    `https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=${qrAddress}&choe=UTF-8`;
+    `https://chart.googleapis.com/chart?chs=420x420&cht=qr&chco=333333333&chl=${qrAddress}&choe=UTF-8`;
 
   const addressForJazzIcon = utils.isAddress(address)
     ? address
     : ENSProfile.address
     ? ENSProfile.address
-    : "8";
+    : "666";
 
   const jazzIconSeed = parseInt(
     Math.round(Math.random() * Number(addressForJazzIcon)).toString()
@@ -92,6 +92,7 @@ export default function ENSProfileCard({
               <IcoChevronDown12 />
             </button>
           </div>
+          {/* SPACER */}
           <div className="text-[undefined] text-[undefined] h-[0] w-[428px] rounded-full leading-[undefined] outline outline-[3px] outline-[rgba(242,242,242,1)]" />
           {/* DESCRIPTION */}
           <div className="flex w-[428px] items-start gap-1 self-stretch text-base leading-6 text-black">
@@ -221,7 +222,7 @@ export default function ENSProfileCard({
                   ? qrModalInfo.address
                   : "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
               )}
-              className="h-[420px] w-[420px] object-cover"
+              className="h-[520px] w-[420px] object-cover"
             />
           </div>
         </div>
