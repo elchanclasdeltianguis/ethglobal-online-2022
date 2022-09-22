@@ -111,7 +111,8 @@ export default function ENSProfileCard({
                           navigator.clipboard.writeText(item.value);
                         }}
                         className={`text-black ${
-                          item.value.length > 40 && " overflow-clip"
+                          item.value.length > 40 &&
+                          "overflow-ellipsis overflow-clip w-80"
                         }`}
                       >
                         {item.value}
