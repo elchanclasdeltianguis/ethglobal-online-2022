@@ -48,7 +48,7 @@ export default function MyModal({ address }: Props) {
             >
               {/* TOP */}
               <div className="flex w-[420px] gap-4">
-                <div className="h-6 w-6 opacity-[undefined] [background:url()_no-repeat_center_/_contain]" />
+                <div className="h-6 w-6 opacity-[undefined] " />
                 <Dialog.Title as="div" className="h-6 w-[420px]">
                   domain.eth
                 </Dialog.Title>

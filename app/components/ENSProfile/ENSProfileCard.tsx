@@ -90,7 +90,16 @@ export default function ENSProfileCard({
                   !item.value.includes("https") && (
                     <div className="flex w-[268px] items-start gap-1">
                       <p className="text-[rgba(130,130,130,1)]">{item.key}</p>
-                      <p className="text-black">{item.value}</p>
+                      <button
+                        onClick={() => {
+                          navigator.clipboard.writeText(item.value);
+                        }}
+                        className={`text-black ${
+                          item.value.length > 40 && " overflow-clip"
+                        }`}
+                      >
+                        {item.value}
+                      </button>
                     </div>
                   )
               )}
